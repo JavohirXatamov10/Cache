@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Photo</th>
+        <th>Title</th>
+        <th>Body</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post:${posts}">
+        <td th:text="${post.getId()}"></td>
+        <td>
+            <img th:src="@{/post/photo/{id}(id=${post.id})}" width="50" height="50" class="rounded-circle mt-2">
+        </td>
+        <td th:text="${post.getTitle()}"></td>
+        <td th:text="${post.getBody()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
